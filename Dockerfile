@@ -8,10 +8,13 @@ COPY . .
 ENV CGO_ENABLED=0
 RUN go get -d -v ./...
 
-RUN go build -buildvcs=false -a -installsuffix cgo -o index-site .
+RUN go build -v -buildvcs=false -a -installsuffix cgo -o index-site .
 
 FROM busybox AS runtime
 WORKDIR /go/app
 
+COPY static static
+COPY templates templates
 COPY --from=build /go/src/index-site .
+
 ENTRYPOINT ["./index-site"]
