@@ -1,0 +1,10 @@
+<b>
+{{ .LevelName | removeColorCodes }}
+{{ if not .NoZone }} 
+  {{ or .ZoneTitle "Zone" | removeColorCodes }}
+{{ end }}
+{{ .Act | removeColorCodes }}
+</b>
+<i>
+{{ .SubTitle | removeColorCodes }}
+</i>

@@ -1,0 +1,46 @@
+/* layout stuff */
+html {
+  font-family: sans-serif;
+  background: #fff5ee;
+}
+
+body {
+  margin: 16 10% 0 10%;
+}
+
+/* text stuff */
+* {
+  font-size: 24px;
+}
+
+h1 {
+  font-size: 63px;
+}
+
+/* Form stuff */
+form label {
+  font-size: 20px;
+}
+
+form, input+label, legend, select option {
+  font-size: 16px;
+}
+
+select {
+  font-size: 14px;
+}
+
+fieldset input[type="text"] {
+  width: 50%;
+}
+
+/* Link stuff */
+a:link, a:visited {
+  color: #049;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:link:active, a:visited:active {
+  color: green;
+}

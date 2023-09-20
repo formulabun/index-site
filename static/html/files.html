@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <head>
+      <link rel="stylesheet" href="/public/style.css"/>
+      <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+    </head>
+    <body>
+      <a href="/"> home </a>
+      <h1> Files </h1>
+      <form
+          hx-post="/api/files"
+          hx-target="#files"
+          hx-trigger="load, keyup change delay:200ms, submit throttle:1s, change from:select, change from:input throttle:200ms"
+        >
+        <fieldset>
+          <legend>search files</legend>
+          <label>type:</label>
+          <input type="checkbox" name="race"><label>race</label></input>
+          <input type="checkbox" name="battle"><label>battle</label></input>
+          <input type="checkbox" name="char"><label>character</label></input>
+          <input type="checkbox" name="lua" ><label>lua</label></input>
+          <select type="option" name="andor"> <option>and</option> <option>or</option> </select>
+          <br/>
+          <input name="file" type="text" placeholder="filename"/>
+          <button type="submit"> Refresh </button>
+        </fieldset>
+      </form>
+      <div id="files"></div>
+    </body>
+  </head>
+</html>

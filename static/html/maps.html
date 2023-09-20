@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <head>
+      <link rel="stylesheet" href="/public/style.css"/>
+      <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+    </head>
+    <body>
+      <a href="/"> home </a>
+      <h1> Maps </h1>
+      <form
+          hx-get="/api/maps"
+          hx-target="#maps"
+          hx-trigger="load"
+        >
+      </form>
+      <div id="maps"></div>
+    </body>
+  </head>
+</html>

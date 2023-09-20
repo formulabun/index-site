@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <head>
+      <link rel="stylesheet" href="/public/style.css"/>
+      <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+    </head>
+    <body>
+      <p><a href="/"> home </a></p>
+      <p><a href="/files.html"> back </a></p>
+      <div
+          hx-get="/api/file"
+          hx-trigger="load"
+          hx-target="this"
+          hx-vals="javascript:{id: new URLSearchParams(document.location.search).get('id')}"
+          />
+    </body>
+  </head>
+</html>

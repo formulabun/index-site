@@ -1,0 +1,12 @@
+<h1> {{ . }} </h1>
+{{ if . | isRace }}
+<p> Contains the maps:</p>
+<div
+  hx-get="/api/maps"
+  hx-trigger="load"
+  hx-target="this"
+  hx-vals='{"filename": "{{ . }}"}'
+  hx-disinherit="*"
+  >
+</div>
+{{ end }}

@@ -1,0 +1,5 @@
+<ul>
+{{ range . }}
+<li> MAP{{ printf "%s" .MapID }} {{ template "maptitle.tmpl" . }} </li>
+{{ end }}
+</ul>
