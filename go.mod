@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/gorilla/mux v1.8.0
 	github.com/lithammer/fuzzysearch v1.1.8
-	go.formulabun.club/metadatadb v0.0.2
+	go.formulabun.club/metadatadb v0.0.3
 	go.formulabun.club/srb2kart v0.0.6
 )
 
