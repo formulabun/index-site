@@ -6,7 +6,6 @@ import (
 	"net/http"
 
 	"go.formulabun.club/metadatadb"
-	srb2kartstrings "go.formulabun.club/srb2kart/strings"
 )
 
 type MapsHandler struct {
@@ -15,12 +14,8 @@ type MapsHandler struct {
 }
 
 func mapsHandler(dbClient *metadatadb.Client) http.Handler {
-	funcs := template.FuncMap{
-		"removeColorCodes": srb2kartstrings.RemoveColorCodes,
-	}
-
 	t := template.Must(
-		template.New("mapslist.tmpl.html").Funcs(funcs).ParseFiles("templates/mapslist.tmpl.html", "templates/maptitle.tmpl"),
+		template.New("mapslist.tmpl.html").Funcs(templateFuncs).ParseFiles("templates/mapslist.tmpl.html", "templates/maptitle.tmpl"),
 	)
 
 	return &MapsHandler{
@@ -32,7 +27,7 @@ func mapsHandler(dbClient *metadatadb.Client) http.Handler {
 func (f *MapsHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	filename := r.URL.Query().Get("filename")
 
-	files, err := f.c.FindMaps(filename, r.Context())
+	files, err := f.c.FindMaps(filename, nil, r.Context())
 	if err != nil {
 		log.Println(err)
 		w.WriteHeader(http.StatusInternalServerError)

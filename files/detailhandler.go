@@ -27,6 +27,6 @@ func fileHandler(dbc *metadatadb.Client) http.Handler {
 }
 
 func (f *FileHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	filename := r.URL.Query().Get("id")
+	filename := r.URL.Query().Get("filename")
 	f.t.Execute(w, filename)
 }

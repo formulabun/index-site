@@ -1,5 +1,5 @@
 <ul>
 {{ range . }}
-<li> MAP{{ printf "%s" .MapID }} {{ template "maptitle.tmpl" . }} </li>
+<li> <a href="/map.html?mapID={{ .MapID }}&levelName={{ .LevelName }}&subTitle={{ .SubTitle }}"> MAP{{ printf "%s" .MapID }} </a> {{ template "maptitle.tmpl" . }} </li>
 {{ end }}
 </ul>

@@ -10,8 +10,7 @@
       <div
           hx-get="/api/file"
           hx-trigger="load"
-          hx-target="this"
-          hx-vals="javascript:{id: new URLSearchParams(document.location.search).get('id')}"
+          hx-vals="javascript:{filename: new URLSearchParams(document.location.search).get('filename')}"
           />
     </body>
   </head>

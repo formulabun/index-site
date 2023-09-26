@@ -7,4 +7,5 @@ import (
 
 func SetupRouter(r *mux.Router, dbc *metadatadb.Client) {
 	r.Handle("/maps", mapsHandler(dbc))
+	r.Handle("/map", mapHandler(dbc))
 }

@@ -1,0 +1,8 @@
+{{ with index . 0 }}
+<h1> MAP{{ .MapID }} {{ template "maptitle.tmpl" . }} </h1>
+{{ end }}
+
+{{ range . }}
+<h2> From <a href="/file.html?filename={{ .Filename }}">{{ .Filename }}</a> </h3>
+<p> {{ .NumLaps }} laps </p>
+{{ end }}

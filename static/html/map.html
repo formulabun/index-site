@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <head>
+      <link rel="stylesheet" href="/public/style.css"/>
+      <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+    </head>
+    <body>
+      <p><a href="/"> home </a></p>
+      <p><a href="/maps.html"> back </a></p>
+      <div
+          hx-get="/api/map"
+          hx-trigger="load"
+          hx-vals="javascript:{
+          mapID: new URLSearchParams(document.location.search).get('mapID'),
+          levelName: new URLSearchParams(document.location.search).get('levelName'),
+          subTitle: new URLSearchParams(document.location.search).get('subTitle')
+          }"
+          />
+    </body>
+  </head>
+</html>
