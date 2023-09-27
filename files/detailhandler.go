@@ -16,7 +16,7 @@ type FileHandler struct {
 func fileHandler(dbc *metadatadb.Client) http.Handler {
 	funcs := template.FuncMap{
 		"isRace": func(file string) bool {
-			return addons.GetAddonType(file)&addons.RaceFlag != 0
+			return addons.GetAddonType(file)&(addons.RaceFlag|addons.BattleFlag) != 0
 		},
 	}
 	t := template.Must(template.New("file.tmpl.html").Funcs(funcs).ParseFiles("./templates/file.tmpl.html"))
