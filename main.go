@@ -7,9 +7,11 @@ import (
 	"net/http"
 	"time"
 
+	"go.formulabun.club/index-site/common"
 	"go.formulabun.club/index-site/files"
 	"go.formulabun.club/index-site/maps"
 	"go.formulabun.club/metadatadb"
+	"go.formulabun.club/storage"
 
 	"github.com/gorilla/mux"
 )
@@ -25,6 +27,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	// files
+	r.PathPrefix(common.FilePath).Handler(http.StripPrefix(common.FilePath, storage.StoreHandler{}))
 
 	// api
 	apiRouter := r.Methods("GET", "POST").PathPrefix("/api").Subrouter()

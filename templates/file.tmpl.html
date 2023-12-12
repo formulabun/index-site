@@ -1,12 +1,19 @@
-<h1> {{ . }} </h1>
-{{ if . | isRace }}
+<h1> {{ $length := len . }} </h1>
+{{ range . }}
+<h1>  {{ .Filename }} </h1>
+<a href="{{ ToUrl . }}"> download </a>
+{{ if ne $length 1 }}
+{{ .Checksum }}
+{{ end }}
+{{ if isRace .Filename }}
 <p> Contains the maps:</p>
 <div
   hx-get="/api/maps"
   hx-trigger="load"
   hx-target="this"
-  hx-vals='{"filename": "{{ . }}"}'
+  hx-vals='{"filename": "{{ .Filename }}"}'
   hx-disinherit="*"
   >
 </div>
+{{ end }}
 {{ end }}
