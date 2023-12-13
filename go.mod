@@ -7,7 +7,7 @@ require (
 	github.com/lithammer/fuzzysearch v1.1.8
 	go.formulabun.club/metadatadb v0.0.5
 	go.formulabun.club/srb2kart v0.0.8
-	go.formulabun.club/storage v0.0.1
+	go.formulabun.club/storage v0.0.2
 )
 
 require (
